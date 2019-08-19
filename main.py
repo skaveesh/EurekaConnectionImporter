@@ -21,11 +21,8 @@ except KeyError:
     eureka_endpoint = None
     exit(1)
 
-IS_PROD = environment_name == PROD
-
 main_dictionary.update({PAC_EXPORTED: {CHILDREN: {}}})
 main_dictionary[PAC_EXPORTED][CHILDREN] = {ENV_GUID: 1}
-
 main_dictionary.update({ENV_GUID: {NAME: environment_name, IS_GROUP: 1, CHILDREN: {}}})
 
 for key, value in eurekaxmlparse.get_xml_from_eureka(eureka_endpoint)[APPLICATIONS].items():
@@ -44,7 +41,8 @@ for key, value in eurekaxmlparse.get_xml_from_eureka(eureka_endpoint)[APPLICATIO
                 main_dictionary[service_uuid] = {NAME: instance[HOST_NAME], IS_GROUP: 0,
                                                  METHOD: GENERIC_CMD,
                                                  IP: SSH_CMD.format(
-                                                     PRD_PEM_FILE_LOCATION if IS_PROD else NON_PRD_PEM_FILE_LOCATION,
+                                                     PRD_PEM_FILE_LOCATION if environment_name == PROD
+                                                     else NON_PRD_PEM_FILE_LOCATION,
                                                      STARTING_PORT, instance[PORT][TEXT], instance[IP_ADDRESS])}
                 STARTING_PORT += PORT_GAP
                 main_dictionary[service_folder_uuid][CHILDREN][service_uuid] = 1
