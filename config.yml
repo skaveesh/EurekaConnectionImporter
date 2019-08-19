@@ -1,0 +1,6 @@
+eureka-endpoint: http://localhost:8761/eureka/apps
+prod-pem-file-location: /home/vwasaka/Pearson_Projects/CONNECTIONS/PCS95PRD.pem
+non-prod-pem-file-location: /home/vwasaka/Pearson_Projects/CONNECTIONS/PCS95.pem
+output-directory: /home/vwasaka/Documents/AsbruConnections/py/out/
+starting-port: 15000
+port-gap: 5
