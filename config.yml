@@ -1,4 +1,11 @@
-eureka-endpoint: http://localhost:8761/eureka/apps
+endpoints:
+  dev-eureka: http://localhost:8761/eureka/apps
+  dev1-eureka: http://localhost:8761/eureka/apps
+  dev2-eureka: http://localhost:8761/eureka/apps
+  dev3-eureka: http://localhost:8761/eureka/apps
+  qa-eureka: http://localhost:8761/eureka/apps
+  stg-eureka: http://localhost:8761/eureka/apps
+  prod-eureka: http://localhost:8761/eureka/apps
 prod-pem-file-location: /home/vwasaka/Pearson_Projects/CONNECTIONS/PCS95PRD.pem
 non-prod-pem-file-location: /home/vwasaka/Pearson_Projects/CONNECTIONS/PCS95.pem
 output-directory: /home/vwasaka/Documents/AsbruConnections/py/out/
